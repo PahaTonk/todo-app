@@ -10,7 +10,6 @@ function App() {
     { id: 2, title: 'Купить молоток'},
   ]);
 
-  const [selectedSort, setSelectedSort] = useState('')
 
   const createPost = (newPost) => {
     setItems([...items, newPost]);
@@ -22,7 +21,6 @@ function App() {
   }
 
   const sortPosts = (sort) => {
-    setSelectedSort(sort);
     if(sort === 'title') {
       setItems([...items].sort((a,b) => a.title.localeCompare(b.title)))
     } else if (sort === 'title-reverse') {
@@ -36,7 +34,6 @@ function App() {
       <div>
         <Select
           disabled={!items.length}
-          value={selectedSort}
           onChange={sortPosts}
           defaultValue='Sort'
           options={[
